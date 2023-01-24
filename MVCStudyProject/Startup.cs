@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using MVCStudyProject.Data;
 
 namespace MVCStudyProject
 {
@@ -33,6 +35,10 @@ namespace MVCStudyProject
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<MVCStudyProjectContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("MVCStudyProjectContext"), 
+                                    builder => builder.MigrationsAssembly("MVCStudyProject")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
