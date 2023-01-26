@@ -4,6 +4,6 @@
     {
         Pending = 0,
         Billed = 1,
-        canceled = 2
+        Canceled = 2
     }
 }
